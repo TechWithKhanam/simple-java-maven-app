@@ -9,7 +9,7 @@ pipeline {
         stage('Code fetch from Github repo') {
             steps {
                 echo 'Fetching the code'
-                git branch: 'branch1', url: 'https://github.com/TechWithKhanam/simple-java-maven-app.git'
+                git branch: 'testing-branch', url: 'https://github.com/TechWithKhanam/simple-java-maven-app.git'
             }
         }
          stage('Maven build') {
