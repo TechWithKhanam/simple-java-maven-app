@@ -24,5 +24,11 @@ pipeline {
                sh "mvn test"
             }
         }
+        stage('Archiving the artifacts') {
+            steps {
+                echo 'archiving the artifact'
+               archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            }
+        }
     }
 }
