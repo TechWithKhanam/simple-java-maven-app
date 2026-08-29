@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+    
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "Maven"
+    }
+
+    stages {
+        stage('code fetch github repo') {
+            steps {
+                echo "Fetching the code"
+                git branch: 'testing-brancg', url:'https://github.com/shiv9916/simple-java-maven-app.git'
+            }
+        }
+        stage('maven build') {
+            steps {
+                echo "building the code"
+                sh "mvn clean package"
+            }
+        }
+        stage('testing code') {
+            steps {
+                echo "testimg the code"
+                sh "mvn test"
+            }
+        }
+    }
+}
